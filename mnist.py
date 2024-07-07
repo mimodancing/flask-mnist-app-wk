@@ -20,8 +20,8 @@ app.secret_key = "1234567890"
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-model = load_model('./model.h5')#学習済みモデルをロード
-
+#model = load_model('./model.h5')#学習済みモデルをロード
+model = load_model('./model.h5', compile=False)
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
